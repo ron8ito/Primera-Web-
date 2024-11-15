@@ -18,14 +18,36 @@ img {
     background-color: rgba(104, 238, 238, 0.746);
     padding: 60px ;
 }
-.service-item h3 {
+.services h2 {
+    font-size: 60px;
+    color: rgb(0, 54, 233);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+.service-item p {
+    font-size: 22px ;
+    color: black;
+    text-align: center;
+    margin-top: 30px;
+}
+.service-item ol {
     font-size: 22px ;
     color: black;
 }
-.service-item p {
+h4 {
+    font-size:22px ;
+    color: rgb(125, 1, 179);
+    margin-top:60px;
+    margin-bottom: 10px;
+}
+.service-item h3 {
     font-size: 30px;
-    margin-bottom: 30px;
-    color: purple;
+    margin-bottom: 32px;
+    margin-top: 45px;
+    color: rgb(125, 1, 179);
+}
+.services a{
+    color:rgb(0, 33, 154);
+    font-size: 23px;
 }
 .container {
     max-width: 1200px;
@@ -38,7 +60,7 @@ img {
    align-items: center;
    min-height: 50vh;
    justify-content: center;
-   padding: 50px 0;
+   padding: 80px 20px;
    background-repeat:no-repeat ;
    background-size: cover;
    background-image: url(ImagesWeb/DeWatermark.ai_1729724347146.png)
@@ -103,22 +125,22 @@ img {
 }
 
 .header-txt h1 {
-    color: rgb(255, 162, 62);
-    font-size: 90px;
+    color: rgb(255, 156, 50);
+    font-size: 5vw;
     line-height: 1.3;
     margin-bottom: 75px;
     margin-top: 65px;
 }
 
 .header-txt p {
-    margin-bottom:60px;
+    margin-bottom:4vw;
     color: rgb(255, 255, 255);
     font-size: 35px;
 }
 .services , .popular { 
-    border-radius: 45px; /* Redondear las esquinas de las imágenes */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadir sombra para dar un efecto más bonito */
-    transition: all 0.3s ease; /* Efecto suave en la transición de los bordes */
+    border-radius: 45px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease; 
 
 }
 .butons {
@@ -183,14 +205,17 @@ h2{
     width: 100%;
 }
 .produc h1 {
-    color: purple;
+    color: rgb(134, 12, 210);
     font-size: 65px;
     margin-top: 30px;
     margin-bottom: 130px;
 }
+.produc h2 {
+    margin-top: 40px;
+}
 .produc-content h2 {
     text-align: center;
-    font-size: 35px;
+    font-size: 45px;
 }
 .produc-category {
     margin-top: 40px;
@@ -211,7 +236,7 @@ h2{
     margin-top: 30px;
 }
 .produc-1 img {
-    width: 400px;
+    width: 320px;
     max-width: none;
     height: auto;
     object-fit: cover;
@@ -223,13 +248,13 @@ h2{
     font-size: 14px;
 }
 .produc-content img {
-width: 350px;
+width: 320px;
 height: auto;
 object-fit: cover;
 }
 
 h3 {
-    font-size: 10px;
+    font-size: 22px;
     color: white;
     margin-bottom: 10px;
 }
@@ -292,7 +317,18 @@ input {
 .btn-3:hover {
     background-color: darkgray;}
 .reviews {
-  text-align: justify;
+    text-align: justify;
+    background-color: #252288cf;
+    border-radius: 45px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: all 0.3s ease; 
+    margin-top: 45px;
+}
+.reviews p {
+    color: white;
+}
+.reviews h2 {
+    color: #000000;
 }
 .footer {
     display: flex;
@@ -380,10 +416,10 @@ color: purple;
     font-size: 30px;
     color: white;
 }
-@media(max-width:991px) {
+@media(max-width:768px) {
 
     .menu {
-        padding: 20px;
+        padding: 15px;
     }
     .menu label {
         display: initial;
@@ -402,37 +438,57 @@ color: purple;
     .menu .navbar ul li {
         width: 100%;
     }
+    .menu .navbar ul li {
+        font-size: 16px; 
+        padding: 15px;
+    }
     #menu:checked ~ .navbar {
         display: initial;
     }
     .header {
-        min-height: 0vp;
-        padding: 80px 30px 50px 30px;
+        min-height: 40vp;
+        padding: 40px 20px;
     }
     .header-txt {
         text-align: center;
         flex-basis: 100%;
     } 
     .header-txt h1 {
-        font-size: 50px;
+        font-size: 40px;
         margin-bottom: 15px;
+    }   
+    .header-txt p {
+        font-size: 22px; 
+        margin-bottom: 20px; 
     }
     .butons {
         justify-content: center;
+        gap: 15px;
     }
     .btn-1:last-of-type {
         margin-right: 0;
+        width: 100%;
+    }
+    .btn-1, .btr-2, .btn-3 {
+        font-size: 8px; 
+        padding: 10px 25px;
     }
     .popular {
-        display: none;
+        display: block;
+    }
+    .popular-content img {
+        width: 100%;
+    }
+    .services {
+        padding: 40px 20px; 
     }
     .produc {
-        padding: 30px;
+        padding: 20px;
     }
-    .produc-content {
-        grid-template-columns: repeat(1,1fr);
-        gap: 20px;
-        display: grid;
+    .produc-category {
+        grid-template-columns:repeat(1, 1fr);
+        gap:20px;
+        display: contents;
     }
     .produc-category .produc-1 {
         grid-template-columns: 1fr; 
@@ -441,14 +497,21 @@ color: purple;
     .produc-1 img {
         width: 100%;
     }
+    .reviews {
+        text-align: center; 
+        padding: 20px 10px; 
+        font-size: 18px;
+        line-height: 1.6; 
+    }
     .contac {
         padding: 30px;
     }
     form {
         flex-direction: column;
-    }
+    }   
     input {
-        margin: 0 0 20px 0;
+        margin: 0 0 20px 0; 
+        width: 100%;
     }
     footer {
         flex-direction: column;
@@ -457,4 +520,6 @@ color: purple;
     .link ul {
         margin-top: 20px;
     }
-}
+    .link ul li > a {
+        font-size: 18px;
+    }
