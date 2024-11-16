@@ -10,7 +10,7 @@
     </head>
 
   <body>
-        <Header class="header">
+        <Header class="header" id="Inicio">
 
             <div class="menu container">  
               <a href="#" class="logo">HouseArt</a>
@@ -20,15 +20,16 @@
               </label>
               <nav class="navbar">
                  <ul>
-                     <li><a href="#">Inicio</a></li>
-                     <li><a href="#">Servicios</a></li>
-                     <li><a href="#">Productos</a></li>
+                     <li><a href="#Inicio">Inicio</a></li>
+                     <li><a href="#Servicios">Servicios</a></li>
+                     <li><a href="#Productos">Productos</a></li>
                      <li><a href="#" onclick="logout()">Salir</a></li>
                  </ul>
               </nav>
          </div>
              <div class="header-content container">
                  <div class="header-txt">
+                     <h1><li id="user-name"></li></h1>
                      <h1>Compra los <span>articulos</span> <br>que mas te gusten aqui</h1>
                      <p>
                          Bienvenido a HouseArt, este es un negocio dedicado a la producción 
@@ -41,13 +42,19 @@
                      <img src="ImagesWeb/White-art-studio-with-a-wall-gallery.webp" alt="">
                      <div class="butons">
                          <a href="#" class="btn-1">Informacion</a> 
-                         <a href="#" class="btn-1">articulos </a>
+                         <a href="#Articulos" class="btn-1">articulos </a>
                      </div>
                  </div>
              </div>
       </Header>
+      
 
-      <section class="services container">
+    
+     <div id="goodbyeMessage" style="display:none;">
+        <h3>¡Hasta pronto!</h3>
+     </div>
+
+      <section class="services container" id="Servicios">
          <h2>Servicios</h2>
          <div class="service-item">
              <h3>Productos personalizados</h3>
@@ -75,10 +82,10 @@
           </div>
       </section>
 
-      <main class="produc container">
+      <main class="produc container" id="Productos">
           <h1>Todos los productos</h1>
 
-         <div class="produc-content">
+         <div class="produc-content" id="Articulos">
              <h2>Peluches</h2>
              <section class="produc-category peluches">
                  <div class="produc-1">
@@ -554,25 +561,27 @@
      </footer>
     
      
-     <div id="authModal" class="modal" style="display:none">
+     <div id="authModal" class="modal"> 
          <div class="modal-content">
-             <span class="close" onclick="closeModal()">&times;</span>
-             <h2 id="modalTitle">Registrarse</h2>
+              <span class="close">&times;</span>
+             <h2 id="modalTitle">Iniciar sesión</h2>
              <form id="authForm">
-                 <input type="email" id="email" placeholder="Correo electrónico" required>
-                 <input type="password" id="password" placeholder="Contraseña" required>
-                 <input type="submit" value="Enviar">
+                 <label for="email">Correo electrónico:</label>
+                 <input type="email" id="email" required>
+                 <label for="password">Contraseña:</label>
+                 <input type="password" id="password" required>
+                 <label for="userName">Nombre:</label>
+                 <input type="text" id="userName" required> 
+                 <button type="submit">Aceptar</button>
              </form>
-                <p id="toggleText" onclick="toggleAuth()">¿Ya tienes una cuenta? Iniciar sesión</p>
-          </div>
-      </div>
-   
-      <div id="goodbyeMessage" style="display:none;">
+              <p id="toggleText">¿No tienes una cuenta? Registrarse</p>
+         </div>
+     </div>
+     <div id="goodbyeMessage" style="display:flex;">
          <h2>¡Hasta luego!</h2>
          <p>Gracias por visitar HouseArt. ¡Vuelve pronto!</p>
          <a href="index.html" class="btn-1">Volver a la página principal</a>
-      </div>
-   
+     </div>
    
       <script src="scryp.js"></script>
  </body>

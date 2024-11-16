@@ -1,39 +1,72 @@
 function logout() {
-    localStorage.removeItem('user');
-    document.getElementById('goodbyeMessage').style.display = 'block'; 
+    
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('userPassword');
+
+    
+    document.getElementById('user-name').textContent = '';
+
+    
+    document.getElementById('goodbyeMessage').style.display = 'flex'; 
+
+    
     document.querySelector('.header').style.display = 'none'; 
+
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    
+    const storedUserName = localStorage.getItem('userName');
+    
+    if (storedUserName) {
+        displayUserName(storedUserName);
+    }
+
+    
     window.onload = function() {
-        document.getElementById('authModal').style.display = 'flex'; // Muestra el modal de inicio de sesión al cargar la página
+        const userName = localStorage.getItem('userName');  
+        if (!userName) {
+            document.getElementById('authModal').style.display = 'flex';  
+        }
     };
 
+    
     document.querySelector('.close').onclick = function() {
-        closeModal(); // Cierra el modal
+        closeModal(); 
     };
 
+    
     document.getElementById('toggleText').onclick = function() {
-        toggleAuth(); // Cambia entre "Iniciar sesión" y "Registrarse"
+        toggleAuth(); 
     };
 
+    
     document.getElementById('authForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita que se recargue la página al hacer submit
+        event.preventDefault(); 
 
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
+        const userName = document.getElementById('userName').value;
 
-        console.log('Formulario enviado', email, password); // Verifica que los valores sean correctos
+        console.log('Formulario enviado', email, password, userName); 
 
+        
         if (document.getElementById('modalTitle').innerText === "Registrarse") {
-            localStorage.setItem(email, password); // Guarda usuario y contraseña
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', userName);
+            localStorage.setItem('userPassword', password);
             alert('Registro exitoso. Ahora puedes iniciar sesión.');
         } else {
-            const storedPassword = localStorage.getItem(email); // Recupera la contraseña almacenada
-            console.log('Contraseña guardada', storedPassword); // Verifica si se recupera correctamente
+            
+            const storedPassword = localStorage.getItem('userPassword');
+            const storedUserName = localStorage.getItem('userName');
+
+            console.log('Contraseña guardada', storedPassword);
             if (storedPassword && storedPassword === password) {
                 alert('Inicio de sesión exitoso!');
-                closeModal(); // Cierra el modal si el login es exitoso
+                closeModal();
+                displayUserName(storedUserName);
             } else {
                 alert('Error: Correo o contraseña incorrectos.');
             }
@@ -42,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function closeModal() {
-    document.getElementById('authModal').style.display = 'none'; // Cierra el modal
+    
+    document.getElementById('authModal').style.display = 'none'; 
 }
 
 function toggleAuth() {
@@ -56,4 +90,9 @@ function toggleAuth() {
         modalTitle.innerText = "Registrarse";
         toggleText.innerText = "¿Ya tienes una cuenta? Iniciar sesión";
     }
+}
+
+function displayUserName(userName) {
+    const userNameElement = document.getElementById('user-name'); 
+    userNameElement.textContent = `Bienvenido a HouseArt  ${userName}`; 
 }
