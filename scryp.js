@@ -94,5 +94,5 @@ function toggleAuth() {
 
 function displayUserName(userName) {
     const userNameElement = document.getElementById('user-name'); 
-    userNameElement.textContent = `Bienvenido a HouseArt  ${userName}`; 
+    userNameElement.textContent = `Bienvenid@ a HouseArt  ${userName}`; 
 }

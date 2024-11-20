@@ -415,146 +415,178 @@ color: purple;
 }
 
 #goodbyeMessage {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; 
-    background-color: rgba(10, 10, 10, 0.8); 
+    height: 100vh;
+    background-color: rgba(10, 10, 10, 0.8);
     position: fixed;
-    top: 10px; 
-    left: 0; 
-    right: 0; 
-    bottom: 0; 
-    z-index: 1000; 
-    text-align: center; 
+    top: 0px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    text-align: center;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
-    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
     font-size: 30px;
     color: rgb(255, 255, 255);
+    width: 100%;
 }
 #goodbyeMessage h2, #goodbyeMessage p, #goodbyeMessage a {
-    margin: 10px 0; /* Espaciado entre los elementos */
+    margin: 10px 0; 
+    z-index: 1001;
 }
 
 #goodbyeMessage a {
     color: white;
-    display: inline-block;
+    display: flex;
     padding: 11px 35px;
     border: 2px solid aqua;
     border-radius: 20px;
     margin-right: 20px;
     font-size: 17px;
     cursor: pointer;
-
+}
+   
 #goodbyeMessage a:hover {
     background-color: #0056b3;
 }
-@media(max-width:768px) {
 
+¡Claro! He revisado tu código y te voy a ayudar a ajustarlo para que se vea bien en móviles. He realizado algunos cambios y mejoras que considero importantes para mejorar la visualización en dispositivos con pantallas pequeñas (con un ancho de hasta 768px). Los cambios que he realizado incluyen ajustes de tamaño, márgenes, padding, flexbox, y otros detalles.
+
+Aquí te dejo la versión optimizada de tu código:
+
+css
+Copiar código
+@media (max-width: 768px) {
+    
+    /* Ajustes para el menú */
     .menu {
-        padding: 15px;
+        padding: 10px;
     }
     .menu label {
-        display: initial;
+        display: block; /* Cambio de initial a block para asegurar que se vea bien */
     }
-    .menu .navbar{
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: black;
-    display: none;
+    .menu .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: black;
+        display: none;
+        width: 100%;
     }
     .menu .navbar ul li a:hover {
         color: purple;
     }
     .menu .navbar ul li {
         width: 100%;
-    }
-    .menu .navbar ul li {
         font-size: 16px; 
-        padding: 15px;
+        padding: 10px; /* Reduje el padding para móviles */
     }
     #menu:checked ~ .navbar {
-        display: initial;
+        display: block; /* Cambié "initial" por "block" */
     }
+
+    /* Header */
     .header {
-        min-height: 40vp;
-        padding: 40px 20px;
+        min-height: 40vh; /* Corregí '40vp' a '40vh' */
+        padding: 20px; /* Ajusté el padding para hacerlo más compacto */
     }
     .header-txt {
         text-align: center;
         flex-basis: 100%;
     } 
     .header-txt h1 {
-        font-size: 40px;
+        font-size: 32px; /* Reducido el tamaño de la fuente */
         margin-bottom: 15px;
     }   
     .header-txt p {
-        font-size: 22px; 
+        font-size: 18px; /* Reducido el tamaño de la fuente */
         margin-bottom: 20px; 
     }
+
+    /* Botones */
     .butons {
         justify-content: center;
-        gap: 15px;
+        gap: 10px; /* Reducido el gap para mejor visualización */
     }
     .btn-1:last-of-type {
         margin-right: 0;
         width: 100%;
     }
     .btn-1, .btr-2, .btn-3 {
-        font-size: 8px; 
-        padding: 10px 25px;
+        font-size: 14px; /* Aumenté el tamaño de fuente para mejorar la legibilidad */
+        padding: 10px 20px; /* Ajusté el padding */
     }
+
+    /* Sección Popular */
     .popular {
         display: block;
     }
     .popular-content img {
         width: 100%;
+        max-height: 200px; /* Añadí una altura máxima para evitar imágenes muy grandes */
+        object-fit: cover; /* Asegura que las imágenes no se deformen */
     }
+
+    /* Sección Servicios */
     .services {
-        padding: 40px 20px; 
+        padding: 20px; /* Reducido el padding */
     }
+
+    /* Productos */
     .produc {
-        padding: 20px;
+        padding: 15px; /* Reducido el padding */
     }
     .produc-category {
-        grid-template-columns:repeat(1, 1fr);
-        gap:20px;
-        display: contents;
+        grid-template-columns: repeat(1, 1fr); /* Ajustado para 1 columna en móviles */
+        gap: 15px; /* Reducido el espacio entre productos */
     }
     .produc-category .produc-1 {
         grid-template-columns: 1fr; 
-        padding: 0 20px;
+        padding: 0 15px; /* Reducido el padding */
     }
     .produc-1 img {
         width: 100%;
+        object-fit: cover; /* Asegura que la imagen se ajuste bien */
     }
+
+    /* Reseñas */
     .reviews {
         text-align: center; 
-        padding: 20px 10px; 
-        font-size: 18px;
-        line-height: 1.6; 
+        padding: 15px 10px; /* Ajusté el padding */
+        font-size: 16px; /* Reducido el tamaño de la fuente */
+        line-height: 1.5; /* Mejor legibilidad */
     }
+
+    /* Contacto */
     .contac {
-        padding: 30px;
+        padding: 20px; /* Reducido el padding */
     }
     form {
         flex-direction: column;
-    }   
-    input {
-        margin: 0 0 20px 0; 
-        width: 100%;
+        padding: 10px;
     }
+    input {
+        margin: 0 0 15px 0; /* Ajusté el margen inferior */
+        width: 100%;
+        padding: 10px; /* Aumenté el padding para los inputs */
+    }
+
+    /* Footer */
     footer {
         flex-direction: column;
         text-align: center;
+        padding: 20px; /* Añadí padding para mejorar el diseño */
     }
     .link ul {
-        margin-top: 20px;
+        margin-top: 15px; /* Reducido el margen superior */
     }
     .link ul li > a {
-        font-size: 18px;
+        font-size: 16px; /* Reducido el tamaño de fuente */
     }
+}
